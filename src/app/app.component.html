@@ -1,0 +1,41 @@
+
+<br><br><br>
+
+<form [formGroup]="loginForm">
+
+
+  <label for="email1">Email</label>
+  <br>
+  <input type="email" (ngModelChange)="changeFieldMail()" formControlName="email1" id="email1">
+  <div *ngIf="email1.errors?.['required']"> Necessarily </div>
+
+  <br><br>
+
+  <label for="email2">Repeat</label>
+  <br>
+  <input type="email" (ngModelChange)="changeFieldMail()" formControlName="email2" id="email2">
+  <div *ngIf="email2.errors?.['required']"> Necessarily </div>
+  <div *ngIf="loginForm.hasError('noMatchMail')">Email address does not match</div>
+
+  <br><br><br><br>
+
+  <label for="password1">Password</label>
+  <input type="password" (ngModelChange)="changeFieldPass()" formControlName="password1" id="password1">
+  <div *ngIf="password1.errors?.['required']"> Necessarily </div>
+
+  <br><br>
+
+  <label for="password2">Repeat</label>
+  <input type="password" (ngModelChange)="changeFieldPass()" formControlName="password2" id="password2">
+  <div *ngIf="password2.errors?.['required']"> Necessarily </div>
+  <div *ngIf="loginForm.hasError('noMatchPass')">Passwords do not match</div>
+
+  <br><br>
+
+  <button type="submit" [disabled]="!loginForm.valid" >
+    Отправить
+  </button>
+
+
+
+</form>
