@@ -10,9 +10,6 @@ import {Router} from "@angular/router";
 export class AppComponent implements OnInit {
 
 
-
-  public emailExists: boolean = false;
-
   loginForm:FormGroup = this.formBuilder.group({email1: [''], email2: [''], password1: [''], password2: ['']});
 
 
@@ -21,8 +18,7 @@ export class AppComponent implements OnInit {
 
 
 
-  constructor( private formBuilder: FormBuilder,
-               private router: Router,) {
+  constructor( private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
@@ -112,7 +108,6 @@ export class AppComponent implements OnInit {
 
 
   changeFieldMail() {
-    this.emailExists = false
     this.editMail = true
     this.editPass = false
   }
